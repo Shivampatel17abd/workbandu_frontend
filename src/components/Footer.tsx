@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Hexagon, Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Hexagon, Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger to animate when user scrolls to bottom
+// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
@@ -17,7 +17,7 @@ const Footer = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footerRef.current,
-        start: "top 90%", // Animation starts when footer hits bottom of viewport
+        start: "top 90%", 
       }
     });
 
@@ -42,7 +42,7 @@ const Footer = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
           
-          {/* === Column 1: Brand === */}
+          {/* === Column 1: Brand & Newsletter === */}
           <div className="col-span-2 lg:col-span-2 footer-col">
             <Link href="/" className="flex items-center gap-2 mb-4 group w-fit">
               <Hexagon className="h-6 w-6 text-white fill-white/10 group-hover:stroke-indigo-400 transition-colors" />
@@ -51,7 +51,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
-              The developer-first job platform. We help software engineers find companies that value code quality and work-life balance.
+              The operating system for your career. We connect the world's best developers with high-growth startups and unicorn companies.
             </p>
             
             {/* Newsletter Input */}
@@ -68,38 +68,42 @@ const Footer = () => {
                 Subscribe
               </button>
             </div>
+            <p className="text-xs text-gray-600 mt-3">Join 25,000+ devs receiving weekly job drops.</p>
           </div>
 
-          {/* === Column 2: Product === */}
+          {/* === Column 2: For Developers (Candidates) === */}
           <div className="footer-col">
-            <h4 className="font-semibold text-white mb-4">Product</h4>
+            <h4 className="font-semibold text-white mb-4">Find Work</h4>
             <ul className="space-y-3">
               <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Browse Jobs</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Companies</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Salaries</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Post a Job</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Remote Opportunities</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Startup Jobs</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Salary Calculator</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Resume Review</Link></li>
             </ul>
           </div>
 
-          {/* === Column 3: Resources === */}
+          {/* === Column 3: For Companies (Recruiters) === */}
           <div className="footer-col">
-            <h4 className="font-semibold text-white mb-4">Resources</h4>
+            <h4 className="font-semibold text-white mb-4">Hire Talent</h4>
             <ul className="space-y-3">
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Documentation</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">API Reference</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Community</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Post a Job</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Pricing & Plans</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Talent Search</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">API Access</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Success Stories</Link></li>
             </ul>
           </div>
 
-          {/* === Column 4: Company === */}
+          {/* === Column 4: Company & Legal === */}
           <div className="footer-col">
             <h4 className="font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-3">
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">About</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Legal</Link></li>
-              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Contact Support</Link></li>
             </ul>
           </div>
 
@@ -107,9 +111,15 @@ const Footer = () => {
 
         {/* === Bottom Bar === */}
         <div className="footer-bottom border-t border-[#27272a] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} JobBandhu Inc. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4">
+            <p className="text-gray-600 text-sm">
+              &copy; {new Date().getFullYear()} JobBandhu Inc.
+            </p>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <p className="text-gray-600 text-sm flex items-center gap-1">
+              Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> in India
+            </p>
+          </div>
           
           <div className="flex items-center gap-6">
             <Link href="#" className="text-gray-500 hover:text-white transition-colors"><Github className="h-5 w-5" /></Link>
