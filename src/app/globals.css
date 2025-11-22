@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sets the matte black background for the whole app */
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
